@@ -3,6 +3,16 @@
         <title>{% block title %}{% endblock %}</title>
     </head>
     <body>
+        <nav>
+            <ul>
+                <li><a href='/'>Home</a></li>
+                <li><a href='{% url 'newpost' %}'>New Post</a></li>
+                <li><a href='{% url 'user_register' %}'>User Area</a></li>
+                {% if user.is_authenticated %}
+                <li><a href='{% url 'user_profile' user.username %}'>{{ user.username }}</a> <a href='{% url 'user_logout' %}'>Log out</a></li>
+                {% endif %}
+            </ul>
+        </nav>
         <div id="content">
             {% block content %}{% endblock %}
         </div>

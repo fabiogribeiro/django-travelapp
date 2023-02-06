@@ -1,0 +1,14 @@
+{% extends "travelapp/base.html" %}
+
+{% block title %} Show post {% endblock %}
+
+{% block content %}
+    <h2>{{ post.title }}</h2>
+    <p>
+        {{ post.body }}
+    </p>
+
+    {% if post.author %}
+        Author: {{ post.author.username }}
+    {% endif %}
+{% endblock %}

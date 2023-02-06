@@ -1,0 +1,12 @@
+{% extends "travelapp/base.html" %}
+
+{% block title %} New user {% endblock %}
+
+{% block content %}
+    Already have an account? <a href='{% url 'user_login' %}'>Log in</a>
+    <form action="/register/" method="post">
+        {% csrf_token %}
+        {{ form }}
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

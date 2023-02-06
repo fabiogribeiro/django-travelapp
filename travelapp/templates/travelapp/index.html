@@ -3,5 +3,12 @@
 {% block title %} Index lol {% endblock %}
 
 {% block content %}
-    Olá template.
+    <h3>Feed</h3>
+    <ol>
+    {% for p in posts %}
+        <li>
+            <a href="{% url 'showpost' p.id %}">{{ p.title }}</a>
+        </li>
+    {% endfor %}
+    </ol>
 {% endblock %}

@@ -1,0 +1,18 @@
+{% extends "travelapp/base.html" %}
+
+{% block title %} Show user {% endblock %}
+
+{% block content %}
+
+{{ request.user.username }}
+
+{% for p in posts %}
+<ul>
+    <li>
+        {{ p.title }}
+    </li>
+</ul>
+{% endfor %}
+
+{% endblock %}
+
