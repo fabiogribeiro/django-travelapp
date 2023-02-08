@@ -53,6 +53,8 @@ def user_login(req):
         if form.is_valid():
             login(req, form.get_user())
             return redirect('/')
+        
+        return render(req, 'travelapp/login.html', {'form': form})
     
     else:
         form = AuthenticationForm()

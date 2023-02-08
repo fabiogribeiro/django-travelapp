@@ -4,15 +4,14 @@
 
 {% block content %}
 
-{{ request.user.username }}
+<h1 class="uk-heading-small">{{ request.user.username }}</h1>
 
-{% for p in posts %}
-<ul>
+<ul class="uk-list uk-list-striped">
+    {% for p in posts %}
     <li>
-        {{ p.title }}
+        <a href="{% url 'showpost' p.id %}">{{ p.title }}</a>
     </li>
+    {% endfor %}
 </ul>
-{% endfor %}
 
 {% endblock %}
-

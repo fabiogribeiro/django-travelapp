@@ -3,12 +3,12 @@
 {% block title %} Index lol {% endblock %}
 
 {% block content %}
-    <h3>Feed</h3>
-    <ol>
+    <h1 class="uk-heading-medium">Feed</h1>
+    <ul class="uk-list uk-list-striped">
     {% for p in posts %}
         <li>
-            <a href="{% url 'showpost' p.id %}">{{ p.title }}</a>
+            <a href="{% url 'showpost' p.id %}">{{ p.title }}</a> By: {{ p.author.username }}
         </li>
     {% endfor %}
-    </ol>
+    </ul>
 {% endblock %}

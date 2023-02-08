@@ -1,11 +1,23 @@
 {% extends "travelapp/base.html" %}
 
-{% block title %} Novo post {% endblock %}
+{% block title %} New post {% endblock %}
 
 {% block content %}
-    <form action="/newpost/" method="post">
+<div class="uk-flex uk-flex-center">
+    <form action="/newpost/" method="post" class="uk-margin uk-form-horizontal">
         {% csrf_token %}
-        {{ form }}
+        {{ form.as_div }}
     <input type="submit" value="Submit">
 </form>
+</div>
+{% endblock %}
+
+
+{% block custom_script %}
+<script>
+    $('input').addClass('uk-input').wrap('<div class="uk-form-controls"></div>'); 
+    $('textarea').addClass('uk-textarea'); 
+    $('label').addClass('uk-form-label')
+    $('form > div').addClass('uk-margin-small');
+</script>
 {% endblock %}
